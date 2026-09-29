@@ -1,55 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Continue</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { width: 100%; min-height: 100%; }
 
     body {
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       background: linear-gradient(135deg, #f5f7fb 0%, #e9edf5 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
     }
 
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(16, 24, 40, 0.42);
-      backdrop-filter: blur(3px);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
+      background: rgba(16, 24, 40, 0.42);
     }
 
     .popup {
       width: min(92vw, 430px);
-      background: #ffffff;
+      background: #fff;
       border-radius: 20px;
       padding: 28px;
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 22px 60px rgba(0,0,0,.22);
       text-align: center;
-      animation: popupIn 0.25s ease-out;
     }
 
-    .popup h2 {
+    h2 {
       font-size: 24px;
-      line-height: 1.25;
       color: #111827;
       margin-bottom: 10px;
     }
 
-    .popup p {
+    p {
       color: #667085;
       font-size: 15px;
       line-height: 1.5;
@@ -57,85 +48,59 @@
     }
 
     .actions {
-      display: flex;
-      width: 100%;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
       gap: 12px;
+      width: 100%;
     }
 
+    .actions form { width: 100%; }
+
     .btn {
+      width: 100%;
+      min-height: 52px;
       border: 0;
       border-radius: 12px;
-      min-height: 52px;
       padding: 0 18px;
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-      opacity: 0.9;
     }
 
     .btn-next {
-      flex: 2;
       background: #2563eb;
-      color: #ffffff;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(37,99,235,.28);
     }
 
     .btn-close {
-      flex: 1;
       background: #eef2f7;
       color: #344054;
     }
 
-    @keyframes popupIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
     @media (max-width: 420px) {
-      .popup {
-        padding: 22px;
-        border-radius: 16px;
-      }
-
-      .actions {
-        gap: 8px;
-      }
-
-      .btn {
-        min-height: 50px;
-        font-size: 15px;
-      }
+      .popup { padding: 22px; border-radius: 16px; }
+      .actions { gap: 8px; }
+      .btn { min-height: 50px; font-size: 15px; }
     }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-      <h2 id="popup-title">Continue?</h2>
+    <div class="popup">
+      <h2>Continue?</h2>
       <p>Please choose an option below to continue.</p>
 
       <div class="actions">
-        <a class="btn btn-next" href="https://quitedrench.org?abigc=1146487">Next</a>
-        <a class="btn btn-close" href="https://quitedrench.org?abigc=1146487">Close</a>
+        <form action="https://quitedrench.org/" method="get" target="_self">
+          <input type="hidden" name="abigc" value="1146487">
+          <button class="btn btn-next" type="submit">Next</button>
+        </form>
+
+        <form action="https://quitedrench.org/" method="get" target="_self">
+          <input type="hidden" name="abigc" value="1146487">
+          <button class="btn btn-close" type="submit">Close</button>
+        </form>
       </div>
     </div>
   </div>
