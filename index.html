@@ -70,6 +70,10 @@
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
     }
 
@@ -130,21 +134,10 @@
       <p>Please choose an option below to continue.</p>
 
       <div class="actions">
-        <button class="btn btn-next" id="nextBtn">Next</button>
-        <button class="btn btn-close" id="closeBtn">Close</button>
+        <a class="btn btn-next" href="https://quitedrench.org?abigc=1146487">Next</a>
+        <a class="btn btn-close" href="https://quitedrench.org?abigc=1146487">Close</a>
       </div>
     </div>
   </div>
-
-  <script>
-    const targetUrl = 'https://quitedrench.org?abigc=1146487';
-
-    function redirectToTarget() {
-      window.location.href = targetUrl;
-    }
-
-    document.getElementById('nextBtn').addEventListener('click', redirectToTarget);
-    document.getElementById('closeBtn').addEventListener('click', redirectToTarget);
-  </script>
 </body>
 </html>
